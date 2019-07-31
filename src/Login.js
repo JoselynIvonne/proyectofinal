@@ -36,7 +36,7 @@ class Login extends Component {
   }
   render() {
     return (
-      <div className="col-md-6">
+      <div className="col-md-4">
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Correo electronico</label>
@@ -48,7 +48,7 @@ class Login extends Component {
             <input  value={this.state.password} onChange={this.handleChange} type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
           </div>
           <button type="submit" onClick={this.login} class="btn btn-primary">Iniciar Sesion</button>
-          <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Registrarse</button>
+          <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Signup</button>
         </form>
       
       </div>

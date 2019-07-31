@@ -15,7 +15,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome to Home</h1>
+                <h1>Realidad Virtual - LABORATORIOS/AULAS PUCESE</h1>
                 <button onClick={this.logout}>Logout</button>
             </div>
         );
@@ -23,5 +23,4 @@ class Home extends Component {
     }
 
 }
-
 export default Home;
