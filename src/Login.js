@@ -39,16 +39,16 @@ class Login extends Component {
       <div className="col-md-6">
         <form>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="exampleInputEmail1">Correo electronico</label>
             <input  value={this.state.email} onChange={this.handleChange} type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <small id="emailHelp" class="form-text text-muted">Ingrese por favor su correo electronico.</small>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="exampleInputPassword1">Contraseña</label>
             <input  value={this.state.password} onChange={this.handleChange} type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
           </div>
-          <button type="submit" onClick={this.login} class="btn btn-primary">Login</button>
-          <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Signup</button>
+          <button type="submit" onClick={this.login} class="btn btn-primary">Iniciar Sesion</button>
+          <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Registrarse</button>
         </form>
       
       </div>
