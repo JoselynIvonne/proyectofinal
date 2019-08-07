@@ -1,0 +1,17 @@
+{
+  "Horario" : {
+    "dia" : "Jueves",
+    "especialidad" : "Ing. Sistemas y Comp.",
+    "hora_Fin" : "22:00",
+    "hora_Inicio" : "20:00",
+    "id_Horario" : 1,
+    "laboratorio" : "Laboratorio 2",
+    "materia" : "Base de datos 1",
+    "nombre_Docente" : "Susana Patiño"
+  },
+  "Laboratorio" : {
+    "desc_Lab" : "Laboratorio de Computo 1 (Varias salas)",
+    "id_Lab" : "0123456789",
+    "nombre_Laboratorio" : "Laboratorio 1"
+  }
+}
