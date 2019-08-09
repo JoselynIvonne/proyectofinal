@@ -16,6 +16,7 @@ class Home extends Component {
         return (
             <div>
                 <h1>Realidad Aumentada - LABORATORIOS/AULAS PUCESE</h1>
+                
                 <button onClick={this.logout}>Logout</button>
             </div>
         );

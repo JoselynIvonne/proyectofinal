@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import fire from './config/Fire';
 
 class Login extends Component {
@@ -36,21 +36,23 @@ class Login extends Component {
   }
   render() {
     return (
+      
       <div className="col-md-4">
+        <div class="modal-content"></div>
         <form>
           <div class="form-group">
-            <label for="exampleInputEmail1">Correo electronico</label>
-            <input  value={this.state.email} onChange={this.handleChange} type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+            <label for="exampleInputEmail1">   Correo electronico</label>
+            <input  value={this.state.email} style={{marginLeft: '25px'}} onChange={this.handleChange} type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
             <small id="emailHelp" class="form-text text-muted">Ingrese por favor su correo electronico.</small>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Contraseña</label>
-            <input  value={this.state.password} onChange={this.handleChange} type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+            <input  value={this.state.password} style={{marginLeft: '25px'}}onChange={this.handleChange} type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
           </div>
           <button type="submit" onClick={this.login} class="btn btn-primary">Iniciar Sesion</button>
           <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Signup</button>
         </form>
-      
+        
       </div>
     );
   }
