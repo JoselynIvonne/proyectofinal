@@ -3,7 +3,7 @@ import {Link, NavLink,withRouter } from 'react-router-dom';
 import firebase from '../Crud/config/Fire';
 import Swal from 'sweetalert2';
 
-function  Principal({historia}) {
+function  Principal({history}) {
    
     const [auth, Setauth] = useState(false);
     const logout = ()=>{
@@ -16,7 +16,7 @@ function  Principal({historia}) {
             showConfirmButton: false,
             timer: 1500
         })
-        historia.replace('/');
+        history.replace('/');
     }
     firebase.auth().onAuthStateChanged((user)=>{
         if (user) {
@@ -28,9 +28,8 @@ function  Principal({historia}) {
         }
     })
     return (
-        //<ul class="nav nav-pills nav-stacked">
-  
-        <nav className="navbar navbar-expand-lg navbar-ligth bg-dark " >
+ 
+        <nav className="navbar navbar-expand-lg navbar-light bg-custom" >
             {auth?(
            <div className="container-fluid">
                <NavLink to="/" className="navbar-brand" >Sistema de laboratorios</NavLink>
@@ -49,7 +48,7 @@ function  Principal({historia}) {
                         <NavLink  to="/agregar_horario" className="nav-link" activeClassName="active">Agregar Horario</NavLink>
                    </li>
                </ul>
-               <button className="btn btn-sm btn-outline-primary my-2 my-sm-0" onClick={logout} >Cerrar Sesión</button>
+               <button className="btn btn-sm btn-outline-primary my-2 my-sm-0" onClick={logout} ><i class="fas fa-arrow-left">Cerrar Sesión</i></button>
                </div>
            </div>
             ):<Link to="/" className="nav nav-pills nav-stacked" >Sistema de laboratorios</Link>}
