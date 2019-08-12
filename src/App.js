@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import firebase from './Crud/config/Fire';
 
-import Login from './Crud/Auth/Login';
 import Principal from './Crud/Principal';
+import Login from './Crud/Auth/Login';
 import AgregarLaboratorio from './Crud/AgregarLaboratorio';
 import AgregarHorario from  './Crud/AgregarHorario';
 //import Laboratorios from  './Crud/Laboratorios';
