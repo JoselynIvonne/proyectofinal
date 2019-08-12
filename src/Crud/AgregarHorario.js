@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Laboratorio from './Laboratorios';
+import Laboratorios from './Laboratorios';
 import {withRouter} from 'react-router-dom';
 import firebase from './config/Fire';
 
@@ -22,7 +22,7 @@ function AgregarHorario({datos, history, recargar}) {
         }
         
         try {
-            firebase.firestore().collection('horario')
+            firebase.firestore().collection('Horario')
             .add({
                 nombre_Docente,
                 materia,
@@ -72,8 +72,8 @@ function AgregarHorario({datos, history, recargar}) {
                         <label>Laboratorio</label>
                         <select className="form-control" name="laboratorio" onChange={e => setLaboratorio(e.target.value)}>
                             <option>Seleccione un laboratorio</option>
-                            {datos.map(dato => (
-                                <Laboratorio key={dato.id} dato={dato} />
+                            {datos.map(lab => (
+                                <Laboratorios key={lab.id} dato={lab} />
                             ))}
                         </select>
                     </div>
