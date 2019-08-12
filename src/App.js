@@ -7,10 +7,12 @@ import Principal from './Crud/Principal';
 import AgregarLaboratorio from './Crud/AgregarLaboratorio';
 import AgregarHorario from  './Crud/AgregarHorario';
 import Laboratorios from  './Crud/Laboratorios';
+import Horarios from'./Crud/Horarios';
 function App()
 {
     const [lab, setLab]=useState([]);
     const [carga, setcarga]=useState(true);
+    const [horarios, setHorarios]=useState([]);
 
     useEffect(()=>{
       if(carga){
@@ -20,6 +22,13 @@ function App()
            ...dato1.data()
           }))
           setLab(dato);
+        });
+        firebase.firestore().collection('Horario').onSnapshot((snapshot)=>{
+          const datos = snapshot.docs.map((dato)=>({
+            id: dato.id,
+            ...dato.data()
+          }))
+          setHorarios(datos);
         });
       }
       setcarga(false)
@@ -42,6 +51,10 @@ return (
            <AgregarHorario  carga={setcarga} />
           )}/>
           }
+
+          <Route exact path="/horarios" render={()=>(
+            <Horarios horarios={horarios} recargar={setcarga} />
+          )} />
         </Switch>
       </main>
   </Router>

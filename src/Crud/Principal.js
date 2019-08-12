@@ -11,15 +11,18 @@ export default function Header() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-               <li className="navbar-nav mr-auto">
-                    
-                   <ul className="nav-item">
+               <ul className="navbar-nav mr-auto">
+
+                    <li className="nav-item">
+                                <NavLink  to="/horarios" className="nav-link" activeClassName="active">Horarios</NavLink>
+                    </li> 
+                   <li className="nav-item">
                         <NavLink  to="/agregar_laboratorio" className="nav-link" activeClassName="active">Agregar Laboratorio</NavLink>
-                   </ul>
-                   <ul className="nav-item">
+                   </li>
+                   <li className="nav-item">
                         <NavLink  to="/agregar_horario" className="nav-link" activeClassName="active">Agregar Horario</NavLink>
-                   </ul>
-               </li>
+                   </li>
+               </ul>
                </div>
            </div>
        </nav>
