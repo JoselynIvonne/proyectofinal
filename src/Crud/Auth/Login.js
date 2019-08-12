@@ -7,7 +7,7 @@ function Login({history,recargar}) {
     const [ correo, guardarCorreo ] = useState('');
     const [ contrasena , guardarContrasena ] = useState('');
 
-    const  logeo  = async e =>{
+    const  login  = async e =>{
        e.preventDefault();
        try {
            await firebase.auth().signInWithEmailAndPassword(correo, contrasena);
@@ -41,15 +41,17 @@ function Login({history,recargar}) {
    }
 
    return (
-       <div>
-           <div className="container">
-               <div id="login-row" className="row justify-content-center align-items-center">
-                <div id="login-column" className="col-md-6">
-                   <div id="login-box" className="col-md-12">
-                       <form onSubmit={logeo}>
-                           <h3 className="text-center text-info">Iniciar Sesión</h3>
+    <div className="row justify-content-center mt-3 mb-3">
+    <div className="col-md-5 mb-2">
+        <div className="card mt-5 mb-2">
+            <div className="card-body mb-2">
+                <h2 className="text-center py-4 mb-2">
+                    Sistema de Laboratorios  PUCE SE
+                </h2>
+                      
+                       <form onSubmit={login}>
                            <div className="form-group">
-                               <label for="username" className="text-info">Correo:</label><br/>
+                               <label for="username" className="text-info">Correo Electronico:</label><br/>
                                <input type="text" name="username" id="username" className="form-control"
                                required
                                value={correo}
@@ -65,14 +67,14 @@ function Login({history,recargar}) {
                                />
                            </div>
                            <div className="form-group">
-                               <input type="submit" name="submit" class="btn btn-info btn-md" value="Entrar"/>
+                               <input type="submit" name="submit" class="btn btn-info btn-md" value="Iniciar Sesion"/>
                            </div>
                        </form>
                    </div>
                </div>
            </div>
        </div>
-   </div>
+  
    )
 }
 export default withRouter(Login);
