@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {withRouter} from 'react-router-dom';
-import firebase from './config/fire';
+import firebase from './config/Fire';
 
 function AgregarLaboratorio({history, recargar}) {
  
@@ -12,10 +12,10 @@ function AgregarLaboratorio({history, recargar}) {
         e.preventDefault();
     
         if (nombre_Laboratorio==='' || desc_Lab==='' || id_Lab==='') {
-            setError(true);
+           //setError(true);
             return;
         }
-        setError(false);
+        //setError(false);
         try {
             firebase.firestore().collection('Laboratorio').add({
                 desc_Lab,
@@ -35,7 +35,7 @@ function AgregarLaboratorio({history, recargar}) {
             <div className="col-md-8 mx-auto ">
                 <h1 className="text-center"> + Laboratorio</h1>
 
-                {(error) ? <Error mensaje='Todos los campos son obligatorios' /> : null}
+             
 
                 <form className="mt-5" onSubmit={agregar_Laboratorio}>
 

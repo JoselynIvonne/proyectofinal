@@ -1,47 +1,50 @@
-import React, { Component } from 'react';
 import './App.css';
-import fire from './config/Fire';
-import Home from './Home';
-import Login from './Login';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import firebase from './Crud/config/Fire';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = ({
-      user: null,
-    });
-    this.authListener = this.authListener.bind(this);
-  }
+import Principal from './Crud/Principal';
+import AgregarLaboratorio from './Crud/AgregarLaboratorio';
+import AgregarHorario from  './Crud/AgregarHorario';
+import Laboratorios from  './Crud/Laboratorios';
+function App()
+{
+    const [lab, setLab]=useState([]);
+    const [carga, setcarga]=useState(true);
 
-  componentDidMount() {
-    this.authListener();
-  }
-
-  authListener() {
-    fire.auth().onAuthStateChanged((user) => {
-      console.log(user);
-      if (user) {
-        this.setState({ user });
-        localStorage.setItem('user', user.uid);
-      } else {
-        this.setState({ user: null });
-        localStorage.removeItem('user');
+    useEffect(()=>{
+      if(carga){
+        firebase.firestore().collection('Laboratorio').onSnapshot((onSnapshot)=>{
+          const dato= onSnapshot.docs.map(dato1=>({
+           id_Lab :dato1.id_Lab,
+           ...dato1.data()
+          }))
+          setLab(dato);
+        });
       }
-    });
-  }
+      setcarga(false)
+}, [carga])
 
-  render() {
-    return (
-      <div className="App">
-        {this.state.user ? (
-          <Home />
-        ) :
-          (
-            <Login />
-          )}
-      </div>
-    );
-  }
+return (
+  <Router>
+   <Principal/>
+      <main className="container mb-12 ">
+        <Switch>
+          <Route exact path="/" render ={()=>(
+           <Laboratorios lab={lab} carga={setcarga} />
+          )}/>
+
+           <Route exact path="/agregar_laboratorio" render ={()=>(
+           <AgregarLaboratorio  carga={setcarga} />
+          )}/>
+
+          <Route exact path="/agregar_horario" render ={()=>(
+           <AgregarHorario  carga={setcarga} />
+          )}/>
+          }
+        </Switch>
+      </main>
+  </Router>
+);
 }
-
 export default App;
