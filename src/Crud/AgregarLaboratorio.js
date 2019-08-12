@@ -1,29 +1,44 @@
 import React, {useState} from 'react';
 import {withRouter} from 'react-router-dom';
+import Swal from 'sweetalert2';
 import firebase from './config/Fire';
 
-function AgregarLaboratorio({history, recargar}) {
+function AgregarLaboratorio({history, recargar, auth}) {
  
     const [nombre_Laboratorio, setNombre_laboratorio] = useState('');
     const [desc_Lab, setDesc_lab] = useState('');
     const [id_Lab, setId_lab] = useState('');
+    const [ setError] = useState(false);
 
     const agregar_Laboratorio = async e => {
         e.preventDefault();
     
         if (nombre_Laboratorio==='' || desc_Lab==='' || id_Lab==='') {
-           //setError(true);
+           setError(true);
             return;
         }
-        //setError(false);
+        setError(false);
         try {
             firebase.firestore().collection('Laboratorio').add({
                 desc_Lab,
                 nombre_Laboratorio,
                 id_Lab
-            });
+            }).then(
+                Swal.fire({
+                position: 'center',
+                type: 'success',
+                title: 'Bien',
+                text: 'Laboratorio creado con exito!',
+                showConfirmButton: false,
+                timer: 1500
+              }));
         } catch (error) {
             console.log(error);
+            Swal.fire({
+                type: 'error',
+                title: 'Error',
+                text: 'Hubo un error, vuelve a intentarlo!'
+            })
         }
         
         recargar(true);
@@ -32,7 +47,8 @@ function AgregarLaboratorio({history, recargar}) {
 
     return (
         <div className="jumbotron mt-5">
-            <div className="col-md-8 mx-auto ">
+            {auth?(
+                <div className="col-md-8 mx-auto ">
                 <h1 className="text-center"> + Laboratorio</h1>
 
              
@@ -73,6 +89,8 @@ function AgregarLaboratorio({history, recargar}) {
                     <input type="submit" className="font-weight-bold text-uppercase mt-5 btn btn-primary btn-block py-3" value="Agregar Laboratorio" />
                 </form>
             </div>
+          ):<h1 className="alert alert-danger p3 my-5 text-center text-uppercase font-weight-bold">Inicia sesion, para ingresar a este modulo.</h1>}
+
         </div>
     )
 }

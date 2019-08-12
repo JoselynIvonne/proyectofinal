@@ -14,12 +14,15 @@ body {
 /* Other Classes for Page Styling */
 
 body {
-  background: rgb(235, 212, 235);
+  background-image: url(./Imagenes/fondo2.jpg);
+  background-color: rgb(0,0,255); opacity: 0.9;
+  background-color: rgba(0,0,255,0.5);
+ /* background: rgb(235, 212, 235);
   background: -moz-linear-gradient(left, rgb(235, 212, 235) 0%, rgb(218, 157, 203) 42%, rgb(195, 114, 202) 100%);
   background: -webkit-gradient(left top, right top, color-stop(0%, rgb(218, 157, 203)), color-stop(42%, rgb(223, 254, 255)), color-stop(100%, rgb(195, 114, 202)));
   background: -webkit-linear-gradient(left, rgb(235, 212, 235) 0%, rgb(223, 254, 255) 42%, rgb(195, 114, 202) 100%);
   background: -o-linear-gradient(left, rgb(235, 212, 235) 0%, rgb(223, 254, 255)42%, rgb(195, 114, 202) 100%);
   background: -ms-linear-gradient(left, rgb(235, 212, 235) 0%, rgb(223, 254, 255)42%, rgb(195, 114, 202) 100%);
-  background: linear-gradient(to right, rgb(235, 212, 235) 0%, rgb(223, 254, 255)42%, rgb(195, 114, 202) 100%);
+  background: linear-gradient(to right, rgb(235, 212, 235) 0%, rgb(223, 254, 255)42%, rgb(195, 114, 202) 100%);**/
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59ab73', endColorstr='#7421b0', GradientType=1 );
 }

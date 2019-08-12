@@ -12,9 +12,9 @@ function Login({history,recargar}) {
        try {
            await firebase.auth().signInWithEmailAndPassword(correo, contrasena);
            Swal.fire({
-               position: 'center',
-               type: 'success',
-               title: 'Excelente',
+               position: 'center-end',
+               type: 'info',
+               title: 'Inicio de sesion',
                text: 'Sesión iniciada con éxito!',
                showConfirmButton: false,
                timer: 1500
