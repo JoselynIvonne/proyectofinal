@@ -8,8 +8,8 @@ const ListLab = ({laboratorios, recargar, auth}) => {
             <div>
                 <legend className="mb-4 text-center text-uppercase font-weight-bold" >Lista de Laboratorios</legend>
                 <ul className="list-group mt-5">
-                    {laboratorios.map(laboratorio => (
-                        <EliminarLabs key={laboratorio.id} laboratorio={laboratorio} recargar={recargar} />
+                    {laboratorios.map(laboratorios => (
+                        <EliminarLabs key={laboratorios.id_Laboratorio} laboratorios={laboratorios} recargar={recargar} />
                     ))}
                 </ul>
             </div>

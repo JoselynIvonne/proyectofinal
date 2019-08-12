@@ -44,7 +44,7 @@ function Login({history,recargar}) {
     <div className="row justify-content-center mt-3 mb-3">
     <div className="col-md-5 mb-2">
         <div className="card mt-5 mb-2">
-            <div className="card-body mb-2">
+            <div className="card-body mb-2" >
                 <h2 className="text-center py-4 mb-2">
                     Sistema de Laboratorios  PUCE SE
                 </h2>
