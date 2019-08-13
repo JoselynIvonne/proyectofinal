@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
-import Laboratorios from './Laboratorios';
 import {withRouter} from 'react-router-dom';
-import firebase from './config/Fire';
+import firebase from '../config/Fire';
+import Alerta from '../Alerta';
+import Laboratorios from '../Laboratorio/Laboratorios';
 
 
-function AgregarHorario({datos, history, recargar}) {
+
+function AgregarHorario({datos, history, recargar,auth}) {
     const [nombre_Docente, setnombreDocente] = useState('');
     const [materia, setMateria] = useState('');
     const [hora_Inicio, setHorainicio] = useState('');
@@ -12,6 +14,7 @@ function AgregarHorario({datos, history, recargar}) {
     const [laboratorio, setLaboratorio] = useState('');
     const [dia, setDia] = useState('');
     const [especialidad, setEspecialidad] = useState('');
+    const [alerta, setAlerta]=useState(false);
 
     const agregar_horario = async e => {
         e.preventDefault();
@@ -43,10 +46,11 @@ function AgregarHorario({datos, history, recargar}) {
 
     return (
         <div className="jumbotron mt-5">
+            {auth ?(
             <div className="col-md-8 mx-auto ">
                 <h1 className="text-center">Agregar  Horario</h1>
                 <form className="mt-50" onSubmit={agregar_horario}>
-
+                    {(alerta)? <Alerta sms='Todos los campos son obligatorios'/>:null}
                     <div className="form-group">
                         <label>Nombre Docente</label>
                         <input
@@ -126,6 +130,7 @@ function AgregarHorario({datos, history, recargar}) {
                     <input type="submit" className="font-weight-bold text-uppercase mt-5 btn btn-primary btn-block py-3" value="Agregar Laboratorio" />
                 </form>
             </div>
+             ): <h1 className="alert alert-danger p3 my-5 text-center text-uppercase font-weight-bold">NO </h1>}
         </div>
     )
 }

@@ -30,9 +30,9 @@ function  Principal({history}) {
     return (
  
         <nav className="navbar navbar-expand-lg navbar-light bg-custom" >
+            <a class="navbar-brand logo" href="#"><img src="./Crud/Imagenes/logo.png"/></a>
             {auth?(
            <div className="container-fluid">
-               <NavLink to="/" className="navbar-brand" >Sistema de laboratorios</NavLink>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

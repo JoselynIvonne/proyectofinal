@@ -5,11 +5,11 @@ import firebase from './Crud/config/Fire';
 
 import Principal from './Crud/Principal';
 import Login from './Crud/Auth/Login';
-import AgregarLaboratorio from './Crud/AgregarLaboratorio';
-import AgregarHorario from  './Crud/AgregarHorario';
+import AgregarLaboratorio from './Crud/Laboratorio/AgregarLaboratorio';
+import AgregarHorario from  './Crud//Horario/AgregarHorario';
 //import Laboratorios from  './Crud/Laboratorios';
-import Horarios from'./Crud/Horarios';
-import ListLab from './Crud/ListLab';
+import Horarios from'./Crud/Horario/Horarios';
+import ListLab from './Crud/Laboratorio/ListLab';
 
 function App()
 {

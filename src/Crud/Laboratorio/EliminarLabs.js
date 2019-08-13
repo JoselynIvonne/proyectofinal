@@ -1,7 +1,7 @@
 import React,{fragment} from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import firebase from './config/Fire';
+import firebase from '../config/Fire';
 
 const EliminarLabs = ({laboratorio}) => {
     const eliminarLaboratorio = id =>{

@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import {withRouter} from 'react-router-dom';
 import Swal from 'sweetalert2';
-import firebase from './config/Fire';
+import firebase from '../config/Fire';
+import Alerta from '../Alerta';
 
 function AgregarLaboratorio({history, recargar, auth}) {
  
     const [nombre_Laboratorio, setNombre_laboratorio] = useState('');
     const [desc_Lab, setDesc_lab] = useState('');
     const [id_Lab, setId_lab] = useState('');
-    const [ setError] = useState(false);
+    const [error,setError] = useState(false);
 
     const agregar_Laboratorio = async e => {
         e.preventDefault();
@@ -19,30 +20,27 @@ function AgregarLaboratorio({history, recargar, auth}) {
         }
         setError(false);
         try {
-            firebase.firestore().collection('Laboratorio').add({
+            firebase.firestore().collection('laboratorio').add({
                 desc_Lab,
-                nombre_Laboratorio,
-                id_Lab
+                id_Lab,
+                nombre_Laboratorio
             }).then(
-                Swal.fire({
-                position: 'center',
-                type: 'success',
-                title: 'Bien',
-                text: 'Laboratorio creado con exito!',
-                showConfirmButton: false,
-                timer: 1500
-              }));
+                Swal.fire(
+                    'Laboratorio Creado',
+                    'El laboratorio se creo correctamente',
+                    'success'
+                ))
         } catch (error) {
             console.log(error);
             Swal.fire({
                 type: 'error',
                 title: 'Error',
-                text: 'Hubo un error, vuelve a intentarlo!'
+                text: 'Error, vuelve a intentarlo!'
             })
         }
         
         recargar(true);
-        history.push('/');
+        history.push('/laboratorios');
     }
 
     return (
@@ -51,7 +49,7 @@ function AgregarLaboratorio({history, recargar, auth}) {
                 <div className="col-md-8 mx-auto ">
                 <h1 className="text-center"> + Laboratorio</h1>
 
-             
+             {(error)? <Alerta sms='Todos los campos son obligatorios'/>:null}
 
                 <form className="mt-5" onSubmit={agregar_Laboratorio}>
 
@@ -60,7 +58,7 @@ function AgregarLaboratorio({history, recargar, auth}) {
                         <input
                             type="text"
                             className="form-control"
-                            name="nombrelab"
+                            name="nombre_Laboratorio"
                             placeholder="Nombre Laboratorio"
                             onChange={e =>setNombre_laboratorio(e.target.value)}
                         />
@@ -71,7 +69,7 @@ function AgregarLaboratorio({history, recargar, auth}) {
                         <input
                             type="text"
                             className="form-control"
-                            name="descripcion"
+                            name="desc"
                             placeholder="Descripción"
                             onChange={e =>setDesc_lab(e.target.value)}
                         />
