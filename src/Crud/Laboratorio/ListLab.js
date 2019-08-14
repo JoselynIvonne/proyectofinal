@@ -8,7 +8,7 @@ const ListLab = ({laboratorios, recargar, auth}) => {
         <div className="jumbotron mt-5">
             {auth ? (
             <div>
-                <h1 className="text-center">Laboratorios</h1>
+                <h1 className="text-center">Laboratorios Actualizados</h1>
                     <div className="col-md-12 text-center">
                         <Link to={`/nuevo-laboratorio`} className="btn btn-success mr-2">Agregar laboratorio</Link>
                     </div>                <ul className="list-group mt-5">

@@ -36,12 +36,9 @@ function  Principal({history}) {
                     <li className="nav-item">
                         <NavLink  to="/horarios" className="nav-link" activeClassName="active">Horarios</NavLink>
                     </li>
-            
+        
                    <li className="nav-item">
-                        <NavLink  to="/agregar_laboratorio" className="nav-link" activeClassName="active">Agregar Laboratorio</NavLink>
-                   </li>
-                   <li className="nav-item">
-                        <NavLink  to="/laboratorio" className="nav-link" activeClassName="active">Laboratorio</NavLink>
+                        <NavLink  to="/nuevo-laboratorio" className="nav-link" activeClassName="active">Laboratorio</NavLink>
                    </li>
                    
                    <li className="nav-item">

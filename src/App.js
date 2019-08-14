@@ -12,6 +12,8 @@ import EditarLaboratorio from  './Crud/Laboratorio/EditarLaboratorio';
 import Horarios from'./Crud/Horario/Horarios';
 import ListLab from './Crud/Laboratorio/ListLab';
 import GenerarMarcadores from './Crud/RA/GenerarMarcadores';
+import EliminarLabs from './Crud/Laboratorio/EliminarLabs';
+import Laboratorios from './Crud/Laboratorio/Laboratorios';
 //import RealidadAumentada from './Crud/RA/RealidadAumentada';
 
 function App()
@@ -58,21 +60,18 @@ return (
           )}/>
 
         <Route exact path="/laboratorios" render={()=>(
-            <ListLab laboratorios={lab} carga={setcarga} auth={auth1}/>
+            <Laboratorios laboratorios={lab} carga={setcarga} auth={auth1}/>
           )} /> 
-
+        <Route exact path="/agregar_laboratorio" render ={()=>(
+           <AgregarLaboratorio  carga={setcarga}  auth={auth1}/>
+          )}/>
+          <Route exact path="/nuevo-laboratorio"  render={()=>(
+            <AgregarLaboratorio carga={carga} auth={auth1}/>
+          )} />
         <Route exact path="/generar-marcador" render={()=>(
           <GenerarMarcadores auth={auth1}/>
         )}/>
 
-       
-
-        <Route exact path="/agregar_laboratorio" render ={()=>(
-           <AgregarLaboratorio  carga={setcarga}  auth={auth1}/>
-          )}/>
-        <Route exact path="/nuevo-laboratorio"  render={()=>(
-            <AgregarLaboratorio carga={carga} auth={auth1}/>
-          )} />
           <Route exact path="/agregar_horario" render ={()=>(
            <AgregarHorario  carga={setcarga}  auth={auth1} />
           )}/>

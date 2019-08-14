@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
         <div className="jumbotron mt-5">
             {auth ?(
             <div>
-                 <h1 className="text-center">Horarios</h1>
+                 <h1 className="text-center">Horarios Actualizados</h1>
                     <div className="col-md-12 text-center">
                         <Link to={`/nuevo-horario`} className="btn btn-success mr-2">Agregar horario</Link>
                     </div>
