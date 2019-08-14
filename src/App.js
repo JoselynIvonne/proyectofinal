@@ -11,6 +11,7 @@ import EditarLaboratorio from  './Crud/Laboratorio/EditarLaboratorio';
 import Horarios from'./Crud/Horario/Horarios';
 import ListLab from './Crud/Laboratorio/ListLab';
 import GenerarMarcadores from './Crud/RA/GenerarMarcadores';
+//import RealidadAumentada from './Crud/RA/RealidadAumentada';
 
 function App()
 {
@@ -63,6 +64,8 @@ return (
           <GenerarMarcadores auth={auth1}/>
         )}/>
 
+       
+
         <Route exact path="/agregar_laboratorio" render ={()=>(
            <AgregarLaboratorio  carga={setcarga}  auth={auth1}/>
           )}/>
@@ -76,13 +79,13 @@ return (
             <Horarios horarios={horarios} carga={setcarga}  auth={auth1}/>
           )} />
 
-            <Route exact path="/laboratorios/editar/:id" render={props=>{
+          <Route exact path="/laboratorios/editar/:id" render={props=>{
             //Tomando el id del lab
             const id_Lab = props.match.params.id;
             //lab que se pasa al state 
-            const lab1 = lab1.filter(laboratorio => laboratorio.id === id_Lab);
+            const lab = lab.filter(laboratorio => laboratorio.id === id_Lab);
             return (
-              <EditarLaboratorio lab={lab1[0]}/>
+              <EditarLaboratorio lab={lab[0]}/>
             )
           }} />   
         </Switch>
