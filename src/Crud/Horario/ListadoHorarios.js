@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 const ListadoHorarios= ({Horario}) => {
     const eliminarHorario = id_Horario =>{
         //Eliminar los registros
-    
-        
     }
     return (
         <li  className="list-group-item d-flex justify-content-between align-items-center">

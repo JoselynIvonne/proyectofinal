@@ -12,12 +12,11 @@ function Login({history,recargar}) {
        try {
            await firebase.auth().signInWithEmailAndPassword(correo, contrasena);
            Swal.fire({
-               position: 'center-end',
-               type: 'info',
-               title: 'Inicio de sesion',
+               position: 'center',
+               type: 'success',
                text: 'Sesión iniciada con éxito!',
                showConfirmButton: false,
-               timer: 1500
+               timer: 100
            })
            recargar(true);
            history.replace('/laboratorios');

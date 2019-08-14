@@ -58,6 +58,8 @@ function AgregarHorario({datos, history,auth}) {
                             className="form-control"
                             name="nombre_Docente"
                             placeholder="Docente"
+                            required
+                               value={nombre_Docente}
                             onChange={e => setnombreDocente(e.target.value)}
                         />
                     </div>
@@ -69,6 +71,8 @@ function AgregarHorario({datos, history,auth}) {
                             className="form-control"
                             name="materia"
                             placeholder="Materia"
+                            required
+                               value={materia}
                             onChange={e => setMateria(e.target.value)}
                         />
                     </div>
@@ -77,7 +81,7 @@ function AgregarHorario({datos, history,auth}) {
                         <select className="form-control" name="laboratorio" onChange={e => setLaboratorio(e.target.value)}>
                             <option> Seleccione un laboratorio</option>
                             {datos.map(dato => (
-                                <Laboratorios key={dato.id} dato={dato} />
+                                <Laboratorios key={dato.id_Lab} dato={dato} />
                             ))}
                         </select>
                     </div>

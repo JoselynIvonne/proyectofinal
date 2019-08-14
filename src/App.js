@@ -70,12 +70,16 @@ return (
         <Route exact path="/agregar_laboratorio" render ={()=>(
            <AgregarLaboratorio  carga={setcarga}  auth={auth1}/>
           )}/>
-
+        <Route exact path="/nuevo-laboratorio"  render={()=>(
+            <AgregarLaboratorio carga={carga} auth={auth1}/>
+          )} />
           <Route exact path="/agregar_horario" render ={()=>(
            <AgregarHorario  carga={setcarga}  auth={auth1} />
           )}/>
           }
-
+          <Route exact path="/nuevo-horario" render={()=>(
+            <AgregarHorario datos={lab} carga={setcarga} auth={auth1}/>
+          )} />
           <Route exact path="/horarios" render={()=>(
             <Horarios horarios={horarios} carga={setcarga}  auth={auth1}/>
           )} />

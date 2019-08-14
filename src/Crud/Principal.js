@@ -1,21 +1,13 @@
 import React, {useState} from 'react';
 import {Link, NavLink,withRouter } from 'react-router-dom';
 import firebase from '../Crud/config/Fire';
-import Swal from 'sweetalert2';
 
 function  Principal({history}) {
    
     const [auth1, Setauth] = useState(false);
     const logout = ()=>{
         firebase.auth().signOut();
-        Swal.fire({
-            position: 'center',
-            type: 'success',
-            title: 'Bien',
-            text: 'Sesión cerrada con exito, vuelva pronto.',
-            showConfirmButton: false,
-            timer: 1500
-        })
+     
         history.replace('/');
     }
     firebase.auth().onAuthStateChanged((user)=>{
@@ -44,25 +36,14 @@ function  Principal({history}) {
                     <li className="nav-item">
                         <NavLink  to="/horarios" className="nav-link" activeClassName="active">Horarios</NavLink>
                     </li>
-            <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Agregar
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <NavLink  to="/horarios" className="nav-link" activeClassName="active">Horarios</NavLink>
-          <a class="dropdown-item" href="/horarios">Horario</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li> 
+            
                    <li className="nav-item">
                         <NavLink  to="/agregar_laboratorio" className="nav-link" activeClassName="active">Agregar Laboratorio</NavLink>
                    </li>
                    <li className="nav-item">
                         <NavLink  to="/laboratorio" className="nav-link" activeClassName="active">Laboratorio</NavLink>
                    </li>
-                   <li className="nav-item">
-                        <NavLink  to="/agregar_horario" className="nav-link" activeClassName="active">Agregar Horario</NavLink>
-                   </li>
+                   
                    <li className="nav-item">
                         <NavLink  to="/generar-marcador" className="nav-link" activeClassName="active">Generar Marcador</NavLink>
                    </li>
@@ -70,7 +51,7 @@ function  Principal({history}) {
                <button className="btn btn-signOut btn-outline-primary my-4 my-sm-1" onClick={logout} ><i class="fas fa-arrow-left">Cerrar Sesión</i></button>
                </div>
            </div>
-            ):<Link to="/" className="nav nav-pills nav-stacked" >Sistema de laboratorios</Link>}
+            ):<Link to="/login" className="nav nav-pills nav-stacked" >Sistema de laboratorios</Link>}
        </nav>
 
        

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {withRouter} from 'react-router-dom';
-import Swal from 'sweetalert2';
 import firebase from '../config/Fire';
 import Alerta from '../Alerta';
 
@@ -24,19 +23,10 @@ function AgregarLaboratorio({history, carga, auth}) {
                 desc_Lab,
                 marcador_Lab,
                 nombre_Laboratorio
-            }).then(
-                Swal.fire(
-                    'Laboratorio Creado',
-                    'El laboratorio se creo correctamente',
-                    'success'
-                ))
+            })
         } catch (error) {
             console.log(error);
-            Swal.fire({
-                type: 'error',
-                title: 'Error',
-                text: 'Error, vuelve a intentarlo!'
-            })
+           
         }
         
         carga(true);
