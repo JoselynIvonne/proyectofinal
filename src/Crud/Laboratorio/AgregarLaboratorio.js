@@ -8,21 +8,21 @@ function AgregarLaboratorio({history, recargar, auth}) {
  
     const [nombre_Laboratorio, setNombre_laboratorio] = useState('');
     const [desc_Lab, setDesc_lab] = useState('');
-    const [id_Lab, setId_lab] = useState('');
+    const [marcador_Lab, setMarcador_Lab] = useState('');
     const [error,setError] = useState(false);
 
     const agregar_Laboratorio = async e => {
         e.preventDefault();
     
-        if (nombre_Laboratorio==='' || desc_Lab==='' || id_Lab==='') {
+        if (nombre_Laboratorio==='' || desc_Lab==='' || marcador_Lab==='') {
            setError(true);
             return;
         }
         setError(false);
         try {
-            firebase.firestore().collection('laboratorio').add({
+            firebase.firestore().collection('Laboratorio').add({
                 desc_Lab,
-                id_Lab,
+                marcador_Lab,
                 nombre_Laboratorio
             }).then(
                 Swal.fire(
@@ -47,7 +47,7 @@ function AgregarLaboratorio({history, recargar, auth}) {
         <div className="jumbotron mt-5">
             {auth?(
                 <div className="col-md-8 mx-auto ">
-                <h1 className="text-center"> + Laboratorio</h1>
+                <h1 className="text-center"> Agregar nuevo Laboratorio</h1>
 
              {(error)? <Alerta sms='Todos los campos son obligatorios'/>:null}
 
@@ -76,12 +76,12 @@ function AgregarLaboratorio({history, recargar, auth}) {
                     </div>
 
                     <div className="form-group">
-                        <label>Id Laboratorio</label>
+                        <label>Marcador de Laboratorio</label>
                         <textarea 
                             className="form-control" 
                             id="exampleFormControlTextarea1" 
                             rows="3" 
-                            onChange={e => setId_lab(e.target.value)}></textarea>
+                            onChange={e => setMarcador_Lab(e.target.value)}></textarea>
                         
                     </div>
                     <input type="submit" className="font-weight-bold text-uppercase mt-5 btn btn-primary btn-block py-3" value="Agregar Laboratorio" />

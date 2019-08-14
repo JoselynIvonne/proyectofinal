@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import firebase from '../config/Fire';
 
 const EliminarLabs = ({laboratorio}) => {
-    const eliminarLaboratorio = id =>{
+    const eliminarLaboratorio = id_Lab =>{
         //Eliminar los registros
         Swal.fire({
           title: '¿Esta seguro?',
@@ -19,11 +19,11 @@ const EliminarLabs = ({laboratorio}) => {
           if (result.value) {
 
             try {
-                firebase.firestore().collection('Laboratorio').doc(id).delete()
+                firebase.firestore().collection('Laboratorio').doc(id_Lab).delete()
                 .then(
                     Swal.fire(
                         'Eliminado!',
-                        'El Laboratorio ha sido eliminado.',
+                        'El Laboratorio ha sid_Lab_Labo eliminado.',
                         'success'
                     )
                 )    
@@ -43,12 +43,11 @@ const EliminarLabs = ({laboratorio}) => {
         <fragment>
             <li  className="list-group-item d-flex justify-content-between align-items-center">
                 <p>
-                    {laboratorio.nombreLab}
+                    {laboratorio.nombre_Laboratorio}
                 </p>
                 <div className="">
-                    <Link to={`/laboratorios/detalle/${laboratorio.id}`} className="btn btn-success mr-2" >Ver <span role="img" aria-label="sheep">👁</span></Link>
-                    <Link to={`/laboratorios/editar/${laboratorio.id}`} className="btn btn-success mr-2" >Editar <span role="img" aria-label="sheep" >🔧</span></Link>
-                    <button className="btn btn-danger" type="button" onClick={()=>eliminarLaboratorio(laboratorio.id)} >Eliminar &#88;</button>
+                    <Link to={`/laboratorios/editar/${laboratorio.id_Lab}`} className="btn btn-success mr-2" >Editar <span role="img" aria-label="sheep" ></span></Link>
+                    <button className="btn btn-danger" type="button" onClick={()=>eliminarLaboratorio(laboratorio.id_Lab)} >Eliminar &#88;</button>
                 </div>
             </li>
         </fragment>

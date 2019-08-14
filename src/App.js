@@ -7,9 +7,10 @@ import Principal from './Crud/Principal';
 import Login from './Crud/Auth/Login';
 import AgregarLaboratorio from './Crud/Laboratorio/AgregarLaboratorio';
 import AgregarHorario from  './Crud//Horario/AgregarHorario';
-//import Laboratorios from  './Crud/Laboratorios';
+import EditarLaboratorio from  './Crud/Laboratorio/EditarLaboratorio';
 import Horarios from'./Crud/Horario/Horarios';
 import ListLab from './Crud/Laboratorio/ListLab';
+import GenerarMarcadores from './Crud/AR/GenerarMarcadores';
 
 function App()
 {
@@ -21,11 +22,11 @@ function App()
     useEffect(()=>{
       if(carga){
         firebase.firestore().collection('Laboratorio').onSnapshot((onSnapshot)=>{
-          const dato= onSnapshot.docs.map(dato1=>({
-           id_Lab :dato1.id_Lab,
-           ...dato1.data()
+          const datos= onSnapshot.docs.map(dato=>({
+           id_Lab :dato.id_Lab,
+           ...dato.data()
           }))
-          setLab(dato);
+          setLab(datos);
         });
         firebase.firestore().collection('Horario').onSnapshot((snapshot)=>{
           const datos = snapshot.docs.map((dato)=>({
@@ -51,14 +52,16 @@ return (
       <main className="container mb-12 ">
         <Switch>
         <Route exact path="/" render={()=>(
-            <Login recargar={setcarga} />
+            <Login carga={setcarga} />
           )}/>
 
         <Route exact path="/laboratorios" render={()=>(
-            <ListLab laboratorios={lab} recargar={setcarga} auth={auth1}/>
+            <ListLab laboratorios={lab} carga={setcarga} auth={auth1}/>
           )} /> 
 
-           <Route exact path="/agregar_laboratorio" render ={()=>(
+        <Router exact
+
+        <Route exact path="/agregar_laboratorio" render ={()=>(
            <AgregarLaboratorio  carga={setcarga}  auth={auth1}/>
           )}/>
 
@@ -68,8 +71,18 @@ return (
           }
 
           <Route exact path="/horarios" render={()=>(
-            <Horarios horarios={horarios} recargar={setcarga}  auth={auth1}/>
+            <Horarios horarios={horarios} carga={setcarga}  auth={auth1}/>
           )} />
+
+            <Route exact path="/laboratorios/editar/:id" render={props=>{
+            //Tomando el id del lab
+            const id_Lab = props.match.params.id;
+            //lab que se pasa al state 
+            const lab = lab.filter(laboratorio => laboratorio.id === id_Lab);
+            return (
+              <EditarLaboratorio lab={lab[0]}/>
+            )
+          }} />   
         </Switch>
       </main>
   </Router>
