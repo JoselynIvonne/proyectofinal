@@ -80,9 +80,9 @@ return (
             //Tomando el id del lab
             const id_Lab = props.match.params.id;
             //lab que se pasa al state 
-            const lab = lab.filter(laboratorio => laboratorio.id === id_Lab);
+            const lab1 = lab1.filter(laboratorio => laboratorio.id === id_Lab);
             return (
-              <EditarLaboratorio lab={lab[0]}/>
+              <EditarLaboratorio lab={lab1[0]}/>
             )
           }} />   
         </Switch>
