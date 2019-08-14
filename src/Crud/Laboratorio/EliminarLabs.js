@@ -40,17 +40,26 @@ const EliminarLabs = ({laboratorio}) => {
         })
     }
     return (
-        <fragment>
-            <li  className="list-group-item d-flex justify-content-between align-items-center">
-                <p>
-                    {laboratorio.nombre_Laboratorio}
-                </p>
-                <div className="">
-                    <Link to={`/laboratorios/editar/${laboratorio.id_Lab}`} className="btn btn-success mr-2" >Editar <span role="img" aria-label="sheep" ></span></Link>
-                    <button className="btn btn-danger" type="button" onClick={()=>eliminarLaboratorio(laboratorio.id_Lab)} >Eliminar &#88;</button>
-                </div>
-            </li>
-        </fragment>
+        <li className="list-group-item d-flex justify-content-between alig-items-center">
+            <p>
+                {laboratorio.nombre_Laboratorio} {' |'}
+                <span className="font-weight-blod">{laboratorio.desc_Lab}</span>
+            </p>
+            <div>
+                <Link to={`/laboratorios/editar/${laboratorio.id_Lab}`}
+                    className="btn btn-success mr-2"
+                >Editar</Link>
+
+                <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() => eliminarLaboratorio(laboratorio.id_Lab)}
+                >
+                    Eliminar &times;
+                </button>
+            </div>
+        </li>
     )
 }
+
 export default EliminarLabs;

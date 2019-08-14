@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import firebase from '../config/Fire';
 import Alerta from '../Alerta';
 
-function AgregarLaboratorio({history, recargar, auth}) {
+function AgregarLaboratorio({history, carga, auth}) {
  
     const [nombre_Laboratorio, setNombre_laboratorio] = useState('');
     const [desc_Lab, setDesc_lab] = useState('');
@@ -39,7 +39,7 @@ function AgregarLaboratorio({history, recargar, auth}) {
             })
         }
         
-        recargar(true);
+        carga(true);
         history.push('/laboratorios');
     }
 

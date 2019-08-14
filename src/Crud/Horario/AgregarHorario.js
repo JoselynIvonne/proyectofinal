@@ -6,7 +6,7 @@ import Laboratorios from '../Laboratorio/Laboratorios';
 
 
 
-function AgregarHorario({datos, history, recargar,auth}) {
+function AgregarHorario({datos, history,auth}) {
     const [nombre_Docente, setnombreDocente] = useState('');
     const [materia, setMateria] = useState('');
     const [hora_Inicio, setHorainicio] = useState('');
@@ -20,10 +20,10 @@ function AgregarHorario({datos, history, recargar,auth}) {
         e.preventDefault();
 
         if (nombre_Docente==='' || materia==='' || hora_Inicio==='' || hora_Fin==='' || laboratorio==='' || dia===''|| especialidad==='') {
-          
+          setAlerta(true);
             return;
         }
-        
+        setAlerta(false);
         try {
             firebase.firestore().collection('Horario')
             .add({
@@ -32,14 +32,14 @@ function AgregarHorario({datos, history, recargar,auth}) {
                 hora_Inicio,
                 hora_Fin,
                 laboratorio,
-                dia
+                dia,
+                especialidad
             })
         } catch (error) {
             console.log(error);
            
         }
 
-        recargar(true);
       
         history.push('/horario');
     }
@@ -75,9 +75,9 @@ function AgregarHorario({datos, history, recargar,auth}) {
                     <div className="form-group">
                         <label>Laboratorio</label>
                         <select className="form-control" name="laboratorio" onChange={e => setLaboratorio(e.target.value)}>
-                            <option>Seleccione un laboratorio</option>
-                            {datos.map(lab => (
-                                <Laboratorios key={lab.id} dato={lab} />
+                            <option> Seleccione un laboratorio</option>
+                            {datos.map(dato => (
+                                <Laboratorios key={dato.id} dato={dato} />
                             ))}
                         </select>
                     </div>

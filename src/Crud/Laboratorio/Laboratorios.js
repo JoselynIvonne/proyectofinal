@@ -1,9 +1,9 @@
 import React,{Fragment} from 'react'
 
-const Laboratorios = ({lab}) => {
+const Laboratorios = ({dato}) => {
     return (
         <Fragment>
-            <option value={lab.nombre_Laboratorio}>{lab.nombre_Laboratorio}</option>
+            <option value={dato.nombre_Laboratorio}>{dato.nombre_Laboratorio}</option>
         </Fragment>
     )
 }

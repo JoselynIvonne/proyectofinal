@@ -43,7 +43,17 @@ function  Principal({history}) {
                 <ul class="nav nav-pills nav-stacked">
                     <li className="nav-item">
                         <NavLink  to="/horarios" className="nav-link" activeClassName="active">Horarios</NavLink>
-                    </li> 
+                    </li>
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Agregar
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <NavLink  to="/horarios" className="nav-link" activeClassName="active">Horarios</NavLink>
+          <a class="dropdown-item" href="/horarios">Horario</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li> 
                    <li className="nav-item">
                         <NavLink  to="/agregar_laboratorio" className="nav-link" activeClassName="active">Agregar Laboratorio</NavLink>
                    </li>
@@ -57,7 +67,7 @@ function  Principal({history}) {
                         <NavLink  to="/generar-marcador" className="nav-link" activeClassName="active">Generar Marcador</NavLink>
                    </li>
                </ul>
-               <button className="btn btn-sm btn-outline-primary my-2 my-sm-0" onClick={logout} ><i class="fas fa-arrow-left">Cerrar Sesión</i></button>
+               <button className="btn btn-signOut btn-outline-primary my-4 my-sm-1" onClick={logout} ><i class="fas fa-arrow-left">Cerrar Sesión</i></button>
                </div>
            </div>
             ):<Link to="/" className="nav nav-pills nav-stacked" >Sistema de laboratorios</Link>}
