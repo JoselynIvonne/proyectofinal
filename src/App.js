@@ -10,7 +10,7 @@ import AgregarHorario from  './Crud//Horario/AgregarHorario';
 import EditarLaboratorio from  './Crud/Laboratorio/EditarLaboratorio';
 import Horarios from'./Crud/Horario/Horarios';
 import ListLab from './Crud/Laboratorio/ListLab';
-import GenerarMarcadores from './Crud/AR/GenerarMarcadores';
+import GenerarMarcadores from './Crud/RA/GenerarMarcadores';
 
 function App()
 {
@@ -59,7 +59,9 @@ return (
             <ListLab laboratorios={lab} carga={setcarga} auth={auth1}/>
           )} /> 
 
-        <Router exact
+        <Route exact path="/generar-marcador" render={()=>(
+          <GenerarMarcadores auth={auth1}/>
+        )}/>
 
         <Route exact path="/agregar_laboratorio" render ={()=>(
            <AgregarLaboratorio  carga={setcarga}  auth={auth1}/>
