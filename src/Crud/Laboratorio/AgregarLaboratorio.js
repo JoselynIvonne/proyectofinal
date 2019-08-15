@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom';
 import firebase from '../config/Fire';
 import Alerta from '../Alerta';
 
+//Permite agregar un nuevo laboratorio.
 function AgregarLaboratorio({history, carga, auth}) {
  
     const [nombre_Laboratorio, setNombre_laboratorio] = useState('');
@@ -10,14 +11,20 @@ function AgregarLaboratorio({history, carga, auth}) {
     const [marcador_Lab, setMarcador_Lab] = useState('');
     const [error,setError] = useState(false);
 
+    //metodo agregar_laboratorio
     const agregar_Laboratorio = async e => {
         e.preventDefault();
     
+        //validacion de campos
         if (nombre_Laboratorio==='' || desc_Lab==='' || marcador_Lab==='') {
-           setError(true);
+           //alerta por campos vacios
+            setError(true);
             return;
         }
+        //campos llenos corectamenta, no envia alerta
         setError(false);
+        //agregar los datos en base de datos, tabla laboratorio
+        //manejo de errores
         try {
             firebase.firestore().collection('Laboratorio').add({
                 desc_Lab,
@@ -28,11 +35,11 @@ function AgregarLaboratorio({history, carga, auth}) {
             console.log(error);
            
         }
-        
+        //Muestra la vista laboratorios
         carga(true);
         history.push('/Laboratorio');
     }
-
+//creacion de campos para formulario, parte visual.
     return (
         <div className="jumbotron mt-5">
             {auth?(

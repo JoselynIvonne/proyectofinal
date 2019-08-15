@@ -1,12 +1,11 @@
 import React,{fragment} from 'react';
 import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import firebase from '../config/Fire';
 
 const EliminarLabs = ({Laboratorio}) => {
     const eliminarLaboratorio = id_Lab =>{
         //Eliminar los registros
-        
+        //
     }
     return (
         <li className="list-group-item d-flex justify-content-between alig-items-center">
@@ -16,7 +15,6 @@ const EliminarLabs = ({Laboratorio}) => {
                 {Laboratorio.marcador}<br></br>
             </p>
             <div className="">
-            <Link to={`/Laboratorio/detalle/${Laboratorio.id_Lab}`} className="btn btn-success mr-2">Ver </Link>
             <Link to={`/Laboratorio/editar/${Laboratorio.id_Lab}`} className="btn btn-success mr-2">Ver </Link>
             <button className="btn btn-danger" type="button" onClick={()=>eliminarLaboratorio(Laboratorio.id_Lab)}>Eliminar &#88;</button>
             </div>

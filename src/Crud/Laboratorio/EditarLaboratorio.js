@@ -7,11 +7,10 @@ import firebase from '../config/Fire';
 
 function EditarLaboratorio({lab, history}) {
 
-    //Agregando los ref
+    //Agregando los referencias de campos
     const nombreLabRef = useRef('');
     const descripcionlabRef = useRef('');
     const marcadorRef = useRef('');
-
     const [alerta, setError] = useState(false);
 
     const editarLaboratorio = async e =>{
@@ -21,13 +20,15 @@ function EditarLaboratorio({lab, history}) {
         const nuevoNombreLab = nombreLabRef.current.value,
                nuevoDescripcionlab = descripcionlabRef.current.value,
                nuevoMarcador = marcadorRef.current.value;
-
+        //validacion de campos 
         if (nuevoNombreLab==='' || nuevoDescripcionlab==='' || nuevoMarcador==='') {
+            //Envia alerta
             setError(true);
             return;
         }
+        //no envia alertas
         setError(false);
-
+        //campos a aeditar
         const editar = {
             nombre_Laboratorio: nuevoNombreLab,
             desc_Lab : nuevoDescripcionlab,
@@ -56,6 +57,7 @@ function EditarLaboratorio({lab, history}) {
         //Redirigir al usuario 
         history.push('/laboratorios');
     }
+    //CREACION DE FORMULARIOS
     return (
         <div className="jumbotron mt-5">
             <div className="col-md-8 mx-auto ">

@@ -1,5 +1,6 @@
 import React,{Fragment} from 'react'
 
+//Muestra los nombre de los laboratorios
 const Laboratorios = ({dato}) => {
     return (
         <Fragment>

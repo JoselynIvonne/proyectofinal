@@ -2,11 +2,13 @@ import React, { Fragment } from 'react';
 import ListadoHorarios from './ListadoHorarios';
 import { Link } from 'react-router-dom';
 
+//Permite visualizar los horarior ya ingresados.
  function Horarios({horarios, recargar, auth}) {
     return (
         <Fragment>
         <div className="jumbotron mt-5">
-            {auth ?(
+            {auth ?( //deben estar autentificado para acceder a este modulo.
+            /*Visualizacion de horarios*/
             <div>
                  <h1 className="text-center">Horarios Actualizados</h1>
                     <div className="col-md-12 text-center">

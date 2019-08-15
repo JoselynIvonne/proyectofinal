@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const ListadoHorarios= ({Horario}) => {
     const eliminarHorario = id_Horario =>{
         //Eliminar los registros
+        //Permite acceder ala vista editar para modificar datos
     }
     return (
         <li  className="list-group-item d-flex justify-content-between align-items-center">
@@ -17,7 +18,6 @@ const ListadoHorarios= ({Horario}) => {
                 {Horario.dia}<br></br>
              </p>
              <div className="">
-                 <Link to={`/Horarios/detalle/${Horario.id_Horario}`} className="btn btn-success mr-2" >Ver <span role="img" aria-label="sheep">👁</span></Link>
                 <Link to={`/Horarios/editar/${Horario.id_Horario}`} className="btn btn-success mr-2" >Editar <span role="img" aria-label="sheep" >🔧</span></Link>
                 <button className="btn btn-danger" type="button" onClick={()=>eliminarHorario(Horario.id_Horario)}>Eliminar &#88;</button>
             </div>
