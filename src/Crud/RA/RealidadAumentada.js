@@ -1,4 +1,4 @@
-/*import React from 'react';
+import React from 'react';
 import {AFrameRenderer,Marker} from 'react-web-ar';
 
 export default function RealidadAumentada() {
@@ -19,4 +19,4 @@ export default function RealidadAumentada() {
             </Marker>
         </AFrameRenderer>
     )
-}*/
+}

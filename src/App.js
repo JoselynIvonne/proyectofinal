@@ -14,7 +14,7 @@ import ListLab from './Crud/Laboratorio/ListLab';
 import GenerarMarcadores from './Crud/RA/GenerarMarcadores';
 import EliminarLabs from './Crud/Laboratorio/EliminarLabs';
 import Laboratorios from './Crud/Laboratorio/Laboratorios';
-//import RealidadAumentada from './Crud/RA/RealidadAumentada';
+import RealidadAumentada from './Crud/RA/RealidadAumentada';
 
 function App()
 {
@@ -71,7 +71,9 @@ return (
         <Route exact path="/generar-marcador" render={()=>(
           <GenerarMarcadores auth={auth1}/>
         )}/>
-
+        <Route exact path="/realidad-aumentada"
+                component={RealidadAumentada}
+              />
           <Route exact path="/agregar_horario" render ={()=>(
            <AgregarHorario  carga={setcarga}  auth={auth1} />
           )}/>

@@ -30,7 +30,7 @@ function AgregarLaboratorio({history, carga, auth}) {
         }
         
         carga(true);
-        history.push('/laboratorios');
+        history.push('/Laboratorio');
     }
 
     return (

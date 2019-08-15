@@ -41,7 +41,7 @@ function AgregarHorario({datos, history,auth}) {
         }
 
       
-        history.push('/horario');
+        history.push('/Horario');
     }
 
     return (
