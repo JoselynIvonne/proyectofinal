@@ -1,5 +1,6 @@
 import React,{fragment} from 'react';
 
+//Muestra la pagina donde se crean marcadores.
 const GenerarMarcadores = ({auth}) => {
     
     return (
@@ -7,7 +8,7 @@ const GenerarMarcadores = ({auth}) => {
         <h1 className="alert alert-title text-center">GENERADOR DE MARCADORES</h1>
         
         <div className="container">
-            {auth ?(
+            {auth ?( //Solo para usuarios autentificados
             <div>
                 <div className="embed-responsive embed-responsive-1by1 mt-5">
                     <iframe title="marcadores" src="https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html" frameBorder="0" 

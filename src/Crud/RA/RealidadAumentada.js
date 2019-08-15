@@ -1,7 +1,7 @@
 import React from 'react';
-import {AFrameRenderer,Marker} from 'react-web-ar';
+import {AFrameRenderer,Marker} from 'react-web-ar';  //Modulo para AR
 
-//
+//Realidad aumentada  permite lectura de marcadores.
 export default function RealidadAumentada() {
     return (
         <AFrameRenderer arToolKit={{ sourceType: 'webcam' }} >

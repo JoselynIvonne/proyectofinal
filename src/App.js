@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import firebase from './Crud/config/Fire';
 
+//Importacion de  clases utilizadas
 import Principal from './Crud/Principal';
 import PiePag from './Crud/PiePag'
 import Login from './Crud/Auth/Login';
@@ -16,13 +17,16 @@ import EliminarLabs from './Crud/Laboratorio/EliminarLabs';
 import Laboratorios from './Crud/Laboratorio/Laboratorios';
 import RealidadAumentada from './Crud/RA/RealidadAumentada';
 
+
 function App()
 {
+  //Declaracion de variables a utilizar
     const [auth1, setAuth]= useState(false);
     const [lab, setLab]=useState([]);
     const [carga, setcarga]=useState(true);
     const [horarios, setHorarios]=useState([]);
 
+    //Permite cargar los datos a las tablas(Laboratorio,Horario) con sus respectivos campos
     useEffect(()=>{
       if(carga){
         firebase.firestore().collection('Laboratorio').onSnapshot((onSnapshot)=>{
@@ -41,6 +45,7 @@ function App()
         });
       }
       setcarga(false);
+      //Verificacion si esta autentificado en la base de datos
       firebase.auth().onAuthStateChanged((user)=>{
         if(user){
           return setAuth(true);
@@ -50,6 +55,7 @@ function App()
       })
 }, [carga])
 
+//Permite colocar las rutas 
 return (
   <Router>
    <Principal/>
