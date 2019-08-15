@@ -2,10 +2,12 @@ import React, {useState} from 'react';
 import {Link, NavLink,withRouter } from 'react-router-dom';
 import firebase from '../Crud/config/Fire';
 
+//Barra de navegacion en la parte superior de la pagina
 function  Principal({history}) {
-   
+   //variables
     const [auth1, Setauth] = useState(false);
     const logout = ()=>{
+        
         firebase.auth().signOut();
      
         history.replace('/');
@@ -19,9 +21,10 @@ function  Principal({history}) {
             return Setauth(false);
         }
     })
+    //Creacion de formulario, parte visual.
     return (
  
-        <nav className="navbar navbar-expand-lg navbar-light bg-custom" >
+        <nav className="navbar navbar-expand-lg navbar-light bg-ligth" >
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
              </button> 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {AFrameRenderer,Marker} from 'react-web-ar';
 
+//
 export default function RealidadAumentada() {
     return (
         <AFrameRenderer arToolKit={{ sourceType: 'webcam' }} >

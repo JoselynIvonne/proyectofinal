@@ -13,9 +13,10 @@ body {
 
 /* Other Classes for Page Styling */
 
+
 body {
-  background-image: url(./Imagenes/fondo2.jpg);
-  background-color: rgb(0,0,255); opacity: 0.9;
+  background-image: url(./Imagenes/fondo2.jpg); /*Imagen de fondo*/
+  background-color: rgb(0,0,255); opacity: 0.9; /*Permite que los formularios tomen un efecto de transparencia*/
   background-color: rgba(0,0,255,0.5);
  /* background: rgb(235, 212, 235);
   background: -moz-linear-gradient(left, rgb(235, 212, 235) 0%, rgb(218, 157, 203) 42%, rgb(195, 114, 202) 100%);

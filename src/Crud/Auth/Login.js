@@ -2,15 +2,19 @@ import React, {useState} from 'react';
 import firebase from '../config/Fire';
 import {withRouter} from 'react-router-dom';
 import Swal from 'sweetalert2';
-
+//Permite el logeo de un usuario
 function Login({history,recargar}) {
+    //Campos requeridos 
     const [ correo, guardarCorreo ] = useState('');
     const [ contrasena , guardarContrasena ] = useState('');
 
     const  login  = async e =>{
        e.preventDefault();
+       //Controla errores
        try {
+           //Permite verificar con la base de datos los usuarios registrados.
            await firebase.auth().signInWithEmailAndPassword(correo, contrasena);
+           //Libreria de alerta, para confirmar.
            Swal.fire({
                position: 'center',
                type: 'success',
@@ -19,11 +23,14 @@ function Login({history,recargar}) {
                timer: 100
            })
            recargar(true);
+           //una vez iniciado sesion, se redirecciona a la vista de laboratorios
            history.replace('/laboratorios');
        } catch (error) {
            console.log(error.message);
+           //Si los datos no coinciden con los de la base de datos.
            if(error.message==='The password is invalid or the user does not have a password.'){
-               Swal.fire({
+            //alerta.   
+            Swal.fire({
                    type: 'error',
                    title: 'Contraseña incorrecta',
                    text: 'La contraseña que ingresaste es incorrecta!',
@@ -39,6 +46,7 @@ function Login({history,recargar}) {
        }
    }
 
+   //Creacion de la parate visual del formulario
    return (
     <div className="row justify-content-center mt-3 mb-3">
     <div className="col-md-5 mb-2">

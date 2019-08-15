@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { SocialIcon } from 'react-social-icons';
+import { SocialIcon } from 'react-social-icons'; /
 
+//Esta clase permite  mostrar pie de pagina en la parte inferor de la pagina
 class PiePag extends Component {
 	static propTypes = {
     copyright: PropTypes.string

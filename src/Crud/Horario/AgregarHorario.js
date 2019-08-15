@@ -4,9 +4,9 @@ import firebase from '../config/Fire';
 import Alerta from '../Alerta';
 import Laboratorios from '../Laboratorio/Laboratorios';
 
-
-
+//esta clase permite agregar un nuevo laboratorio
 function AgregarHorario({datos, history,auth}) {
+    //declaraciones
     const [nombre_Docente, setnombreDocente] = useState('');
     const [materia, setMateria] = useState('');
     const [hora_Inicio, setHorainicio] = useState('');
@@ -16,16 +16,22 @@ function AgregarHorario({datos, history,auth}) {
     const [especialidad, setEspecialidad] = useState('');
     const [alerta, setAlerta]=useState(false);
 
+    //funcion para agregar un laboratorio
     const agregar_horario = async e => {
         e.preventDefault();
 
+        //Validaciones de todos los campos del formulario
         if (nombre_Docente==='' || materia==='' || hora_Inicio==='' || hora_Fin==='' || laboratorio==='' || dia===''|| especialidad==='') {
-          setAlerta(true);
+           //envia una alerta  de campos que no estan vacios.
+            setAlerta(true);
             return;
         }
+        //Si todos los campos estan llenos, no se envian alertas
         setAlerta(false);
+        //Controla errores y se conecta a la tabla horario de la base creada en firebase
         try {
             firebase.firestore().collection('Horario')
+            //Agrega los campos
             .add({
                 nombre_Docente,
                 materia,
@@ -36,21 +42,23 @@ function AgregarHorario({datos, history,auth}) {
                 especialidad
             })
         } catch (error) {
+            //envia error
             console.log(error);
            
         }
 
-      
+      //una vez ingresado los datos, devuelve a la vista horarios
         history.push('/Horario');
     }
 
+    //Formulario parte visual (campos)
     return (
         <div className="jumbotron mt-5">
-            {auth ?(
+            {auth ?( //Debe estar autentificado para acceder a la vista.
             <div className="col-md-8 mx-auto ">
                 <h1 className="text-center">Agregar  Horario</h1>
                 <form className="mt-50" onSubmit={agregar_horario}>
-                    {(alerta)? <Alerta sms='Todos los campos son obligatorios'/>:null}
+                    {(alerta)? <Alerta sms='Todos los campos son obligatorios'/>:null} 
                     <div className="form-group">
                         <label>Nombre Docente</label>
                         <input
@@ -134,8 +142,8 @@ function AgregarHorario({datos, history,auth}) {
                     <input type="submit" className="font-weight-bold text-uppercase mt-5 btn btn-primary btn-block py-3" value="Agregar Laboratorio" />
                 </form>
             </div>
-             ): <h1 className="alert alert-danger p3 my-5 text-center text-uppercase font-weight-bold">NO </h1>}
+             ): <h1 className="alert alert-danger p3 my-5 text-center text-uppercase font-weight-bold">NO </h1>} 
         </div>
     )
 }
-export default withRouter(AgregarHorario);
+export default withRouter(AgregarHorario); 
